@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>VueTest</title>
+  <style>
+    .color {
+      color: red;
+    }
+
+    .y-enter-active {
+      transition: .3s ease-out;
+    }
+
+    .y-leave-active {
+      transition: .3s ease-out;
+      position: absolute;
+    }
+
+    .y-enter {
+      opacity: 0;
+      transform: translateY(1000px);
+    }
+
+    .y-enter-to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .y-leave {
+      opacity: 1;
+    }
+
+    .y-leave-to {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="d">
+    <p>
+      ddddddddddddddddddddddddddd
+    </p>
+  </div>
+
+  <div id="app">
+
+    <transition name="y">
+      <div v-if="show.a" key="a">
+        <button v-on:click="show.b=!show.b,show.a=!show.a">Abutton</button>
+        <p>
+          aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>aaaaaaaaaa<br>
+        </p>
+      </div>
+
+      <div v-else-if="show.b" key="b">
+        <button v-on:click="show.a=!show.a,show.b=!show.b">B1button</button>
+        <button v-on:click="show.z=!show.z,show.b=!show.b" v-bind:disabled="!b2abled">B2button</button>
+        <div v-bind:class="{ color: isActive[0] }" v-on:click="test(0)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[1] }" v-on:click="test(1)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[2] }" v-on:click="test(2)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[3] }" v-on:click="test(3)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[4] }" v-on:click="test(4)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[5] }" v-on:click="test(5)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[6] }" v-on:click="test(6)">
+          bbbbbbbbbb
+        </div>
+        <div v-bind:class="{ color: isActive[7] }" v-on:click="test(7)">
+          bbbbbbbbbb
+        </div>
+      </div>
+
+      <div v-else-if="show.z" key="z">
+        <button v-on:click="show.b=!show.b,show.z=!show.z">Zbutton</button>
+        <p>
+          zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>zzzzzzzzzz<br>
+        </p>
+      </div>
+    </transition>
+
+  </div>
+
+  <p>
+    c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>c<br>
+  </p>
+
+  <script>
+    var vue = new Vue({
+      el: '#app',
+      data: {
+        show: {
+          a: true, b: false, z: false
+        },
+        isActive: [false]
+      },
+      methods: {
+        test: function (k) {
+          this.isActive.splice(k, 1, !this.isActive[k]);
+        }
+      },
+      computed: {
+        b2abled: function () {
+          return this.isActive.some(value => {
+            return value
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
